@@ -5,7 +5,7 @@ using UnityEngine;
 public class VCamController : MonoBehaviour
 {
     [SerializeField]
-    private GameObject[] vCams;
+    private GameObject[] _vCams;
 
     // Start is called before the first frame update
     void Start()
@@ -23,8 +23,8 @@ public class VCamController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            vCams[0].SetActive(false);
-            vCams[1].SetActive(false);
+            _vCams[0].SetActive(false);
+            _vCams[1].SetActive(false);
         }
     }
 }
