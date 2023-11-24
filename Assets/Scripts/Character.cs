@@ -10,6 +10,7 @@ public class Character : MonoBehaviour
     [SerializeField] private float _rotateSpeed;
     [SerializeField] private CinemachineVirtualCamera _3rdPerson;
     [SerializeField] private CinemachineVirtualCamera _orbital;
+    [SerializeField] private CinemachineVirtualCamera[] _triggerCams;
 
     private Vector3 _direction;
 
@@ -23,7 +24,7 @@ public class Character : MonoBehaviour
     void Update()
     {
         TankMovement();
-        CameraSwitch();
+        //CameraSwitch();
     }
 
     private void TankMovement()
@@ -50,6 +51,36 @@ public class Character : MonoBehaviour
         if (Input.GetMouseButtonUp(1))
         {
             _orbital.Priority = 10;
+        }
+    }
+
+    private void TriggerSwitch(int vcamID)
+    {
+        foreach (var camera in _triggerCams)
+        {
+            camera.Priority = 10;
+        }
+
+        _triggerCams[vcamID].Priority = 100;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Cube 1")
+        {
+            TriggerSwitch(0);
+        }
+        if (other.tag == "Cube 2")
+        {
+            TriggerSwitch(1);
+        }
+        if (other.tag == "Cube 3")
+        {
+            TriggerSwitch(2);
+        }
+        if (other.tag == "Cube 4")
+        {
+            TriggerSwitch(3);
         }
     }
 }
