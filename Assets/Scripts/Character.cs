@@ -12,12 +12,15 @@ public class Character : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera _orbital;
     [SerializeField] private CinemachineVirtualCamera[] _triggerCams;
 
+    private bool _isADS = false;
     private Vector3 _direction;
+
+    Animator _charAnimator;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        _charAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -25,6 +28,7 @@ public class Character : MonoBehaviour
     {
         TankMovement();
         //CameraSwitch();
+        ADS();
     }
 
     private void TankMovement()
@@ -52,6 +56,20 @@ public class Character : MonoBehaviour
         {
             _orbital.Priority = 10;
         }
+    }
+
+    private void ADS()
+    {
+        if (Input.GetKey(KeyCode.Mouse1))
+        {
+            _isADS = true;
+        }
+        else
+        {
+            _isADS = false;
+        }
+
+        _charAnimator.SetBool("isAiming", _isADS);
     }
 
     private void TriggerSwitch(int vcamID)
