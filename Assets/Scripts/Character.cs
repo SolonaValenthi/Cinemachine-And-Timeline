@@ -28,7 +28,7 @@ public class Character : MonoBehaviour
     {
         TankMovement();
         //CameraSwitch();
-        ADS();
+        //ADS();
     }
 
     private void TankMovement()
