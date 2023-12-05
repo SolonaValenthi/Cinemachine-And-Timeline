@@ -159,6 +159,12 @@ namespace StarterAssets
             JumpAndGravity();
             GroundedCheck();
             Move();
+            Aiming();
+
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                _animator.SetTrigger("Death");
+            }
         }
 
         private void LateUpdate()
@@ -276,6 +282,18 @@ namespace StarterAssets
             {
                 _animator.SetFloat(_animIDSpeed, _animationBlend);
                 _animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
+            }
+        }
+
+        private void Aiming()
+        {
+            if (Input.GetKeyDown(KeyCode.Mouse1))
+            {
+                _animator.SetBool("Aim", true);
+            }
+            if (Input.GetKeyUp(KeyCode.Mouse1))
+            {
+                _animator.SetBool("Aim", false);
             }
         }
 
