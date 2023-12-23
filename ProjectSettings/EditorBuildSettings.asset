@@ -4,6 +4,12 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Timeline_Scene.unity
+    guid: e9e754fe8c7d2f6429098c9c03e3beeb
+  - enabled: 1
+    path: Assets/Scenes/Challenge_Scene.unity
+    guid: bb865d5fab400b340bf102363c54d446
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}
