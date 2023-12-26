@@ -10,6 +10,7 @@ TagManager:
   - Cube 4
   - CinemachineTarget
   - Security
+  - Winner
   layers:
   - Default
   - TransparentFX
